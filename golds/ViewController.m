@@ -7,13 +7,17 @@
 //
 
 #import "ViewController.h"
-
+#import "SWNotification.h"
 @implementation ViewController
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     // Do any additional setup after loading the view.
+    SWNotification *swNotification = [SWNotification shareInstance];
+    [swNotification sendNotificationWithTitle:@"通知中心" subTitle:@"小标题" detailText:@"详细文字说明" contentImage:[NSImage imageNamed:@"ladybugThumb"]];
 }
 
 - (void)setRepresentedObject:(id)representedObject {

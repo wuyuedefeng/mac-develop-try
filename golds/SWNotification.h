@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SWNotification : NSObject
+@interface SWNotification : NSObject<NSUserNotificationCenterDelegate>
+
++(instancetype) shareInstance;
+
+- (void)sendNotificationWithTitle:(NSString *)title subTitle:(NSString *)subTitle detailText:(NSString *)detailText contentImage:(NSImage *)image;
 
 @end

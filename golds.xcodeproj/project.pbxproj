@@ -14,6 +14,7 @@
 		F78DB61D1CD8A4D500DEDE22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F78DB61B1CD8A4D500DEDE22 /* Main.storyboard */; };
 		F78DB6281CD8A4D500DEDE22 /* goldsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F78DB6271CD8A4D500DEDE22 /* goldsTests.m */; };
 		F78DB6331CD8A4D500DEDE22 /* goldsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F78DB6321CD8A4D500DEDE22 /* goldsUITests.m */; };
+		F78DB6421CD8AA1900DEDE22 /* SWNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = F78DB6411CD8AA1900DEDE22 /* SWNotification.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,8 @@
 		F78DB62E1CD8A4D500DEDE22 /* goldsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = goldsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F78DB6321CD8A4D500DEDE22 /* goldsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = goldsUITests.m; sourceTree = "<group>"; };
 		F78DB6341CD8A4D500DEDE22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F78DB6401CD8AA1900DEDE22 /* SWNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWNotification.h; sourceTree = "<group>"; };
+		F78DB6411CD8AA1900DEDE22 /* SWNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWNotification.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,8 @@
 				F78DB61B1CD8A4D500DEDE22 /* Main.storyboard */,
 				F78DB61E1CD8A4D500DEDE22 /* Info.plist */,
 				F78DB6131CD8A4D500DEDE22 /* Supporting Files */,
+				F78DB6401CD8AA1900DEDE22 /* SWNotification.h */,
+				F78DB6411CD8AA1900DEDE22 /* SWNotification.m */,
 			);
 			path = golds;
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F78DB6421CD8AA1900DEDE22 /* SWNotification.m in Sources */,
 				F78DB6181CD8A4D500DEDE22 /* ViewController.m in Sources */,
 				F78DB6151CD8A4D500DEDE22 /* main.m in Sources */,
 				F78DB6121CD8A4D500DEDE22 /* AppDelegate.m in Sources */,
@@ -489,6 +495,7 @@
 				F78DB6391CD8A4D500DEDE22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F78DB63A1CD8A4D500DEDE22 /* Build configuration list for PBXNativeTarget "goldsTests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +504,7 @@
 				F78DB63C1CD8A4D500DEDE22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F78DB63D1CD8A4D500DEDE22 /* Build configuration list for PBXNativeTarget "goldsUITests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +513,7 @@
 				F78DB63F1CD8A4D500DEDE22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -10,6 +10,7 @@
 
 @interface ViewController : NSViewController
 
+@property (nonatomic, strong)NSUserNotificationCenter *noti;
 
 @end
 

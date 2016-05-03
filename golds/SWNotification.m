@@ -40,6 +40,9 @@ static SWNotification* _instance = nil;
     [[NSUserNotificationCenter defaultUserNotificationCenter] scheduleNotification:notification];
     //设置通知的代理
     [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
+    
+    //删除已经显示过的通知
+    //[[NSUserNotificationCenter defaultUserNotificationCenter] removeAllDeliveredNotifications];
 }
 
 #pragma mark -NSUserNotificationCenter

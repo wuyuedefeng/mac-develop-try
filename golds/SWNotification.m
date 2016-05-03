@@ -30,6 +30,8 @@ static SWNotification* _instance = nil;
     notification.subtitle = subTitle;
     notification.informativeText = detailText;
     notification.contentImage = image;
+    // 设置通知声音
+    notification.soundName = NSUserNotificationDefaultSoundName;
     
     //只有当用户设置为提示模式时，才会显示按钮
     notification.hasActionButton = YES;

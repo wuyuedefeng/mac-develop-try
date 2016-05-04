@@ -23,7 +23,8 @@ static SWNotification* _instance = nil;
     return _instance ;
 }
 
-- (void)sendNotificationWithTitle:(NSString *)title subTitle:(NSString *)subTitle detailText:(NSString *)detailText contentImage:(NSImage *)image{
+- (void)sendNotificationWithTitle:(NSString *)title subTitle:(NSString *)subTitle detailText:(NSString *)detailText contentImage:(NSImage *)image
+{
     NSUserNotification *notification = [[NSUserNotification alloc] init];//创建通知中心
     _userNotification = notification;
     notification.title = title;

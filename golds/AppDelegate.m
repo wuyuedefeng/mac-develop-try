@@ -34,8 +34,12 @@
     [request setTimeoutInterval:60];
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:Nil error:nil];
     //NSString* dataStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-    [[SWStatusItem shareInstance] showTitle:resultDic[@"results"][@"buy"]];
+    if (data){
+        NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        if (resultDic && [resultDic isKindOfClass:[NSDictionary class]]){
+            [[SWStatusItem shareInstance] showTitle:resultDic[@"results"][@"buy"]];
+        }
+    }
 }
 
 @end

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F787DE361CE17F7A00879F89 /* SWStatusItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F787DE351CE17F7A00879F89 /* SWStatusItem.m */; };
+		F787DE3C1CE1990500879F89 /* SWNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = F787DE3B1CE1990500879F89 /* SWNotification.m */; };
 		F78DB6121CD8A4D500DEDE22 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F78DB6111CD8A4D500DEDE22 /* AppDelegate.m */; };
 		F78DB6151CD8A4D500DEDE22 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F78DB6141CD8A4D500DEDE22 /* main.m */; };
 		F78DB6181CD8A4D500DEDE22 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F78DB6171CD8A4D500DEDE22 /* ViewController.m */; };
@@ -14,7 +16,6 @@
 		F78DB61D1CD8A4D500DEDE22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F78DB61B1CD8A4D500DEDE22 /* Main.storyboard */; };
 		F78DB6281CD8A4D500DEDE22 /* goldsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F78DB6271CD8A4D500DEDE22 /* goldsTests.m */; };
 		F78DB6331CD8A4D500DEDE22 /* goldsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F78DB6321CD8A4D500DEDE22 /* goldsUITests.m */; };
-		F78DB6421CD8AA1900DEDE22 /* SWNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = F78DB6411CD8AA1900DEDE22 /* SWNotification.m */; };
 		F78DB64D1CD9903F00DEDE22 /* SWButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F78DB64C1CD9903F00DEDE22 /* SWButton.m */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F787DE341CE17F7A00879F89 /* SWStatusItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWStatusItem.h; sourceTree = "<group>"; };
+		F787DE351CE17F7A00879F89 /* SWStatusItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWStatusItem.m; sourceTree = "<group>"; };
+		F787DE3A1CE1990500879F89 /* SWNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWNotification.h; sourceTree = "<group>"; };
+		F787DE3B1CE1990500879F89 /* SWNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWNotification.m; sourceTree = "<group>"; };
 		F78DB60D1CD8A4D500DEDE22 /* golds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = golds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F78DB6101CD8A4D500DEDE22 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F78DB6111CD8A4D500DEDE22 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -51,8 +56,6 @@
 		F78DB62E1CD8A4D500DEDE22 /* goldsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = goldsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F78DB6321CD8A4D500DEDE22 /* goldsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = goldsUITests.m; sourceTree = "<group>"; };
 		F78DB6341CD8A4D500DEDE22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F78DB6401CD8AA1900DEDE22 /* SWNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWNotification.h; sourceTree = "<group>"; };
-		F78DB6411CD8AA1900DEDE22 /* SWNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWNotification.m; sourceTree = "<group>"; };
 		F78DB64B1CD9903F00DEDE22 /* SWButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWButton.h; sourceTree = "<group>"; };
 		F78DB64C1CD9903F00DEDE22 /* SWButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,6 +85,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F787DE301CE17E4600879F89 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
 		F78DB6041CD8A4D500DEDE22 = {
 			isa = PBXGroup;
 			children = (
@@ -114,8 +124,6 @@
 				F78DB61B1CD8A4D500DEDE22 /* Main.storyboard */,
 				F78DB61E1CD8A4D500DEDE22 /* Info.plist */,
 				F78DB6131CD8A4D500DEDE22 /* Supporting Files */,
-				F78DB6401CD8AA1900DEDE22 /* SWNotification.h */,
-				F78DB6411CD8AA1900DEDE22 /* SWNotification.m */,
 			);
 			path = golds;
 			sourceTree = "<group>";
@@ -149,8 +157,13 @@
 		F78DB6471CD98EA000DEDE22 /* SWFramework */ = {
 			isa = PBXGroup;
 			children = (
+				F787DE301CE17E4600879F89 /* Category */,
 				F78DB64B1CD9903F00DEDE22 /* SWButton.h */,
 				F78DB64C1CD9903F00DEDE22 /* SWButton.m */,
+				F787DE341CE17F7A00879F89 /* SWStatusItem.h */,
+				F787DE351CE17F7A00879F89 /* SWStatusItem.m */,
+				F787DE3A1CE1990500879F89 /* SWNotification.h */,
+				F787DE3B1CE1990500879F89 /* SWNotification.m */,
 			);
 			name = SWFramework;
 			path = golds/SWFramework;
@@ -223,6 +236,7 @@
 				TargetAttributes = {
 					F78DB60C1CD8A4D500DEDE22 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = GKXT7Q27M6;
 					};
 					F78DB6221CD8A4D500DEDE22 = {
 						CreatedOnToolsVersion = 7.2;
@@ -285,8 +299,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F78DB6421CD8AA1900DEDE22 /* SWNotification.m in Sources */,
+				F787DE361CE17F7A00879F89 /* SWStatusItem.m in Sources */,
 				F78DB6181CD8A4D500DEDE22 /* ViewController.m in Sources */,
+				F787DE3C1CE1990500879F89 /* SWNotification.m in Sources */,
 				F78DB6151CD8A4D500DEDE22 /* main.m in Sources */,
 				F78DB6121CD8A4D500DEDE22 /* AppDelegate.m in Sources */,
 				F78DB64D1CD9903F00DEDE22 /* SWButton.m in Sources */,
@@ -419,12 +434,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = golds/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wangsen.golds;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -432,12 +449,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = golds/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wangsen.golds;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

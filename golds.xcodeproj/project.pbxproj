@@ -17,6 +17,7 @@
 		F78DB6281CD8A4D500DEDE22 /* goldsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F78DB6271CD8A4D500DEDE22 /* goldsTests.m */; };
 		F78DB6331CD8A4D500DEDE22 /* goldsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F78DB6321CD8A4D500DEDE22 /* goldsUITests.m */; };
 		F78DB64D1CD9903F00DEDE22 /* SWButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F78DB64C1CD9903F00DEDE22 /* SWButton.m */; };
+		F7E8B1E11CE1A639000EDE18 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E8B1E01CE1A639000EDE18 /* CFNetwork.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		F78DB6341CD8A4D500DEDE22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F78DB64B1CD9903F00DEDE22 /* SWButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWButton.h; sourceTree = "<group>"; };
 		F78DB64C1CD9903F00DEDE22 /* SWButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWButton.m; sourceTree = "<group>"; };
+		F7E8B1E01CE1A639000EDE18 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7E8B1E11CE1A639000EDE18 /* CFNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +98,7 @@
 		F78DB6041CD8A4D500DEDE22 = {
 			isa = PBXGroup;
 			children = (
+				F7E8B1E01CE1A639000EDE18 /* CFNetwork.framework */,
 				F78DB60F1CD8A4D500DEDE22 /* golds */,
 				F78DB6471CD98EA000DEDE22 /* SWFramework */,
 				F78DB6261CD8A4D500DEDE22 /* goldsTests */,

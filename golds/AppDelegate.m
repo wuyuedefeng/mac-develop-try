@@ -8,8 +8,11 @@
 
 #import "AppDelegate.h"
 #import "SWStatusItem.h"
+#import <Cocoa/Cocoa.h>
 @interface AppDelegate ()
-    
+
+@property(nonatomic, strong)NSURLSession *session;
+
 @end
 
 @implementation AppDelegate
@@ -32,14 +35,24 @@
     [request setURL:[NSURL URLWithString:@"https://login.vip9999.com/?s=api-getgold"]];
     [request setHTTPMethod:@"GET"];
     [request setTimeoutInterval:60];
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:Nil error:nil];
-    //NSString* dataStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    if (data){
-        NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-        if (resultDic && [resultDic isKindOfClass:[NSDictionary class]]){
-            [[SWStatusItem shareInstance] showTitle:resultDic[@"results"][@"buy"]];
-        }
+    
+    if (!_session){
+        NSURLSessionConfiguration *config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+        _session = [NSURLSession sessionWithConfiguration:config];
     }
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSURLSessionDataTask *dataTask = [_session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            if(error){
+                NSLog(@"%@", error);
+            }else{
+                NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [[SWStatusItem shareInstance] showTitle:resultDic[@"results"][@"buy"]];
+                });
+            }
+        }];
+        [dataTask resume];
+    });
 }
 
 @end

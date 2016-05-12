@@ -50,6 +50,7 @@ static SWStatusBar* _instance = nil;
 - (void)setCustumMenu{
     self.statusMenu = [[NSMenu alloc] initWithTitle:@""];
     
+    [self addCustomMenuItemWithTitle:@"显示" image:nil tag:@2 keyEquivalent:@"s"];
     [self addCustomMenuItemWithTitle:@"退出" image:nil tag:@1 keyEquivalent:@"q"];
     
     [self.statusMenu addItem:[NSMenuItem separatorItem]];
@@ -58,13 +59,15 @@ static SWStatusBar* _instance = nil;
 - (void)addCustomMenuItemWithTitle:(NSString *)title image: (NSImage *)icon tag:(NSNumber *)tag keyEquivalent: (NSString *)key {
     NSMenuItem *menuItem = [self.statusMenu addItemWithTitle:title action:@selector(menuItemClick:) keyEquivalent:key];
     [menuItem setImage:icon];
-    menuItem.tag = 1;
+    menuItem.tag = [tag intValue];
     [menuItem setTarget:self];
 }
 - (void)menuItemClick: (NSMenuItem *)menuItem{
     if(menuItem.tag == 1){
         // 退出
         [NSApp terminate:self];
+    }else if (menuItem.tag == 2){
+        NSLog(@"show");
     }
 }
 

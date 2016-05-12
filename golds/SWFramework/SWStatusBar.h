@@ -7,8 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
-@interface SWStatusItem : NSStatusItem
+@interface SWStatusBar : NSObject<NSMenuDelegate>
 
 +(instancetype) shareInstance;
 
@@ -18,5 +17,8 @@
 - (void)showTitle: (NSString *)title;
 
 - (void) addSelect: (SEL)selector withTarget:(NSObject *)target;
+
+
+- (void)setCustumMenu;
 
 @end

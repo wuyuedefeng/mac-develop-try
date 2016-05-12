@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "SWStatusItem.h"
+#import "SWStatusBar.h"
 #import <Cocoa/Cocoa.h>
 @interface AppDelegate ()
 
@@ -19,8 +19,11 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
-    [[SWStatusItem shareInstance] showTitle:@"golds"];
-    [[SWStatusItem shareInstance] addSelect:@selector(clicStatusBarIcon:) withTarget:self];
+    [[SWStatusBar shareInstance] showTitle:@"golds"];
+//    [[SWStatusBar shareInstance] addSelect:@selector(clickStatusBarIcon:) withTarget:self];
+    [[SWStatusBar shareInstance] setCustumMenu];
+    
+    
     NSTimer *timer = [NSTimer timerWithTimeInterval:5 target:self selector:@selector(getJSBPrice:) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
 }
@@ -46,7 +49,7 @@
             }else{
                 NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [[SWStatusItem shareInstance] showTitle:resultDic[@"results"][@"buy"]];
+                    [[SWStatusBar shareInstance] showTitle:resultDic[@"results"][@"buy"]];
                 });
             }
         }];
@@ -54,8 +57,9 @@
     });
 }
 
-- (void)clicStatusBarIcon: (id)sender{
-    [[NSApplication sharedApplication] terminate:nil]; 
+- (void)clickStatusBarIcon: (id)sender{
+    NSLog(@"%@", @"clickStatusBarIcon");
 }
+
 
 @end

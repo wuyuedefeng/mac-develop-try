@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BA567111F9E49E52E50F0BFD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A550D53049784FD05F8CD4E8 /* libPods.a */; };
+		F743B9951CE9D333003AC491 /* SWView.m in Sources */ = {isa = PBXBuildFile; fileRef = F743B9941CE9D333003AC491 /* SWView.m */; };
 		F787DE361CE17F7A00879F89 /* SWStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F787DE351CE17F7A00879F89 /* SWStatusBar.m */; };
 		F787DE3C1CE1990500879F89 /* SWNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = F787DE3B1CE1990500879F89 /* SWNotification.m */; };
 		F78DB6121CD8A4D500DEDE22 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F78DB6111CD8A4D500DEDE22 /* AppDelegate.m */; };
@@ -42,6 +43,8 @@
 		8A076037605BEB6AFBBA3D96 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		9B7A8E0AE0788099DEA24368 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A550D53049784FD05F8CD4E8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F743B9931CE9D333003AC491 /* SWView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWView.h; sourceTree = "<group>"; };
+		F743B9941CE9D333003AC491 /* SWView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWView.m; sourceTree = "<group>"; };
 		F787DE341CE17F7A00879F89 /* SWStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWStatusBar.h; sourceTree = "<group>"; };
 		F787DE351CE17F7A00879F89 /* SWStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWStatusBar.m; sourceTree = "<group>"; };
 		F787DE3A1CE1990500879F89 /* SWNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWNotification.h; sourceTree = "<group>"; };
@@ -186,6 +189,8 @@
 			isa = PBXGroup;
 			children = (
 				F787DE301CE17E4600879F89 /* Category */,
+				F743B9931CE9D333003AC491 /* SWView.h */,
+				F743B9941CE9D333003AC491 /* SWView.m */,
 				F78DB64B1CD9903F00DEDE22 /* SWButton.h */,
 				F78DB64C1CD9903F00DEDE22 /* SWButton.m */,
 				F787DE341CE17F7A00879F89 /* SWStatusBar.h */,
@@ -383,6 +388,7 @@
 				F787DE3C1CE1990500879F89 /* SWNotification.m in Sources */,
 				F78DB6151CD8A4D500DEDE22 /* main.m in Sources */,
 				F78DB6121CD8A4D500DEDE22 /* AppDelegate.m in Sources */,
+				F743B9951CE9D333003AC491 /* SWView.m in Sources */,
 				F78DB64D1CD9903F00DEDE22 /* SWButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

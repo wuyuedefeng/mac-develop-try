@@ -12,6 +12,7 @@
 @interface AppDelegate ()
 
 @property(nonatomic, strong)NSURLSession *session;
+@property(nonatomic, assign)NSInteger selBarItemTag;
 
 @end
 
@@ -24,7 +25,7 @@
     [[SWStatusBar shareInstance] setCustumMenu];
     
     
-    NSTimer *timer = [NSTimer timerWithTimeInterval:5 target:self selector:@selector(getJSBPrice:) userInfo:nil repeats:YES];
+    NSTimer *timer = [NSTimer timerWithTimeInterval:5 target:self selector:@selector(getPrice:) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
 }
 
@@ -32,9 +33,38 @@
     // Insert code here to tear down your application
 }
 
-- (void)getJSBPrice: (id)sender{
+
+
+- (void)clickStatusBarIcon: (id)sender{
+    NSLog(@"%@", @"clickStatusBarIcon");
+}
+
+
+#pragma mark - 自定义业务
+- (void)clickBarItemWithTag: (NSInteger)tag{
+    self.selBarItemTag = tag;
+    if (tag == 2){
+        [self getPrice:@"http://itrydo.com/ldjPrice" identify:@"伦敦金"];
+    }else if (tag == 3){
+        [self getPrice:@"http://jry.baidao.com/api/hq/npdata.do?markettype=shj&ids=101,102" identify:@"金大师(卖)"];
+    }else if (tag == 4){
+        [self getPrice:@"http://jry.baidao.com/api/hq/npdata.do?markettype=shj&ids=101,102" identify:@"金大师(买)"];
+    }else if (tag == 5){
+        [self getPrice:@"http://itrydo.com/goldPrice" identify:@"黄金钱包"];
+    }else if (tag == 6){
+        [self getPrice:@"https://login.vip9999.com/?s=api-getgold" identify:@"金生宝"];
+    }
+}
+- (void)getPrice: (id)sender{
+    if (!self.selBarItemTag){
+        self.selBarItemTag = 4;
+    }
+    [self clickBarItemWithTag:self.selBarItemTag];
+}
+
+- (void)getPrice: (NSString *)urlString identify:(NSString *)identify{
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:@"https://login.vip9999.com/?s=api-getgold"]];
+    [request setURL:[NSURL URLWithString:urlString]];
     [request setHTTPMethod:@"GET"];
     [request setTimeoutInterval:60];
     
@@ -49,17 +79,26 @@
             }else{
                 NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [[SWStatusBar shareInstance] showTitle:resultDic[@"results"][@"buy"]];
+                    NSString *title = @"...";
+                    if ([identify isEqualToString:@"金生宝"]){
+                        title = [NSString stringWithFormat:@"%@:%@", identify, resultDic[@"results"][@"buy"]];
+                    }
+                    else if ([identify isEqualToString:@"伦敦金"]){
+                        NSString *subString = [resultDic[@"data"] componentsSeparatedByString:@" "][0];
+                        title = [NSString stringWithFormat:@"%@:%@", identify, [subString componentsSeparatedByString:@"#"][1]];
+                    } else if ([identify isEqualToString:@"金大师(买)"]){
+                        title = [NSString stringWithFormat:@"%@:%@", identify, [(NSArray *)resultDic objectAtIndex:0][@"buy"]];
+                    } else if ([identify isEqualToString:@"金大师(卖)"]){
+                        title = [NSString stringWithFormat:@"%@:%@", identify, [(NSArray *)resultDic objectAtIndex:0][@"sell"]];
+                    } else if ([identify isEqualToString:@"黄金钱包"]){
+                        title = [NSString stringWithFormat:@"%@:%@", identify, resultDic[@"price"]];
+                    }
+                    [[SWStatusBar shareInstance] showTitle: title];
                 });
             }
         }];
         [dataTask resume];
     });
 }
-
-- (void)clickStatusBarIcon: (id)sender{
-    NSLog(@"%@", @"clickStatusBarIcon");
-}
-
 
 @end

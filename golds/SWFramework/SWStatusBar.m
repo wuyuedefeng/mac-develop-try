@@ -7,6 +7,7 @@
 //
 
 #import "SWStatusBar.h"
+#import "AppDelegate.h"
 @interface SWStatusBar()
 
 #pragma mark - menu
@@ -50,7 +51,11 @@ static SWStatusBar* _instance = nil;
 - (void)setCustumMenu{
     self.statusMenu = [[NSMenu alloc] initWithTitle:@""];
     
-    [self addCustomMenuItemWithTitle:@"显示" image:nil tag:@2 keyEquivalent:@"s"];
+    [self addCustomMenuItemWithTitle:@"金生宝" image:nil tag:@6 keyEquivalent:@""];
+    [self addCustomMenuItemWithTitle:@"黄金钱包" image:nil tag:@5 keyEquivalent:@""];
+    [self addCustomMenuItemWithTitle:@"金大师(买)" image:nil tag:@4 keyEquivalent:@""];
+    [self addCustomMenuItemWithTitle:@"金大师(卖)" image:nil tag:@3 keyEquivalent:@""];
+    [self addCustomMenuItemWithTitle:@"伦敦金" image:nil tag:@2 keyEquivalent:@""];
     [self addCustomMenuItemWithTitle:@"退出" image:nil tag:@1 keyEquivalent:@"q"];
     
     [self.statusMenu addItem:[NSMenuItem separatorItem]];
@@ -66,8 +71,8 @@ static SWStatusBar* _instance = nil;
     if(menuItem.tag == 1){
         // 退出
         [NSApp terminate:self];
-    }else if (menuItem.tag == 2){
-        NSLog(@"show");
+    }else{
+        [(AppDelegate *)[NSApp delegate] clickBarItemWithTag: menuItem.tag];
     }
 }
 

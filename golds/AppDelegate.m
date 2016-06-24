@@ -25,7 +25,7 @@
     [[SWStatusBar shareInstance] setCustumMenu];
     
     
-    NSTimer *timer = [NSTimer timerWithTimeInterval:5 target:self selector:@selector(getPrice:) userInfo:nil repeats:YES];
+    NSTimer *timer = [NSTimer timerWithTimeInterval:2 target:self selector:@selector(getPrice:) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
 }
 
@@ -87,7 +87,7 @@
                         NSString *subString = [resultDic[@"data"] componentsSeparatedByString:@" "][0];
                         title = [NSString stringWithFormat:@"%@:%@", identify, [subString componentsSeparatedByString:@"#"][1]];
                     } else if ([identify isEqualToString:@"金大师(买)"]){
-                        title = [NSString stringWithFormat:@"%@:%@", identify, [(NSArray *)resultDic objectAtIndex:0][@"buy"]];
+                        title = [NSString stringWithFormat:@"%@:%@:%@", identify, [(NSArray *)resultDic objectAtIndex:0][@"buy"],  [(NSArray *)resultDic objectAtIndex:1][@"buy"]];
                     } else if ([identify isEqualToString:@"金大师(卖)"]){
                         title = [NSString stringWithFormat:@"%@:%@", identify, [(NSArray *)resultDic objectAtIndex:0][@"sell"]];
                     } else if ([identify isEqualToString:@"黄金钱包"]){

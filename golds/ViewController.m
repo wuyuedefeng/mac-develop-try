@@ -33,8 +33,8 @@
     
     [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(getLocalTime) userInfo:nil repeats:YES];
     
-    NSButton *btn2 = [[NSButton alloc] initWithFrame:CGRectMake(0, 0, 200, 50)];
-    btn2.title = @"MyButton";
+    NSButton *btn2 = [[NSButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    btn2.title = @"test";
     [btn2 setTarget:self];
     [btn2 setAction:@selector(click2:)];
     [view addSubview:btn2];
@@ -62,12 +62,26 @@
 
     NSArray *timeArray = [timeString componentsSeparatedByString: @" # "];
     NSString *ms = timeArray[1];
-    NSString *s = [[timeArray[0] componentsSeparatedByString:@":"] lastObject];
+    timeArray = [timeArray[0] componentsSeparatedByString:@":"];
+    NSString *s = timeArray[2];
+    NSString *m = timeArray[1];
     
     
     _btn.title = timeString;
     
-    if (([s intValue] == 59 && [ms intValue] > 500) || [s intValue] == 0) {
+    if ([m intValue] == 29 || [m intValue] == 59){
+        NSMutableAttributedString *attrTitle = [[NSMutableAttributedString alloc]
+                                                initWithAttributedString:[_btn attributedTitle]];
+        long len = [timeString length];
+        NSRange range = NSMakeRange(0, len);
+        [attrTitle addAttribute:NSForegroundColorAttributeName
+                          value:[NSColor orangeColor]
+                          range:range];
+        [attrTitle fixAttributesInRange:range];
+        [_btn setAttributedTitle:attrTitle];
+    }
+    
+    if (([s intValue] == 59 && [ms intValue] > 645) || [s intValue] == 0) {
         [_btn setFont:[NSFont systemFontOfSize:22]];
         NSMutableAttributedString *attrTitle = [[NSMutableAttributedString alloc]
                                                 initWithAttributedString:[_btn attributedTitle]];

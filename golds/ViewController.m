@@ -81,7 +81,7 @@
         [_btn setAttributedTitle:attrTitle];
     }
     
-    if (([s intValue] == 59 && [ms intValue] > 645) || [s intValue] == 0) {
+    if (([s intValue] == 59 && [ms intValue] > 700) || [s intValue] == 0) {
         [_btn setFont:[NSFont systemFontOfSize:22]];
         NSMutableAttributedString *attrTitle = [[NSMutableAttributedString alloc]
                                                 initWithAttributedString:[_btn attributedTitle]];

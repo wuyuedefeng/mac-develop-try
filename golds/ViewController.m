@@ -69,7 +69,7 @@
     
     // 触发点击回车
     static BOOL isRun = false;
-    if([m intValue] == 32 && [s intValue] == 0 && [ms intValue] >= 0 && !isRun){
+    if([m intValue] == 30 && [s intValue] == 0 && [ms intValue] >= 0 && !isRun){
         [self clickPress];
         isRun = true;
     }else if([s intValue] != 0){

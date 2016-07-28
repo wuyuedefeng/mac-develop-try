@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "SWNotification.h"
 #import "SWView.h"
+#include <Carbon/Carbon.h>
 @interface ViewController()
 @property (nonatomic, strong)NSButton *btn;
 @end
@@ -31,7 +32,7 @@
     [btn setAction:@selector(click)];
     [view addSubview:btn];
     
-    [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(getLocalTime) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(getLocalTime) userInfo:nil repeats:YES];
     
     NSButton *btn2 = [[NSButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     btn2.title = @"test";
@@ -66,9 +67,17 @@
     NSString *s = timeArray[2];
     NSString *m = timeArray[1];
     
+    // 触发点击回车
+    static BOOL isRun = false;
+    if([m intValue] == 32 && [s intValue] == 0 && [ms intValue] >= 0 && !isRun){
+        [self clickPress];
+        isRun = true;
+    }else if([s intValue] != 0){
+        isRun = false;
+    }
+    
     
     _btn.title = timeString;
-    
     if ([m intValue] == 29 || [m intValue] == 59){
         NSMutableAttributedString *attrTitle = [[NSMutableAttributedString alloc]
                                                 initWithAttributedString:[_btn attributedTitle]];
@@ -81,7 +90,7 @@
         [_btn setAttributedTitle:attrTitle];
     }
     
-    if (([s intValue] == 59 && [ms intValue] > 700) || [s intValue] == 0) {
+    if (([s intValue] == 59 && [ms intValue] > 730) || [s intValue] == 0) {
         [_btn setFont:[NSFont systemFontOfSize:22]];
         NSMutableAttributedString *attrTitle = [[NSMutableAttributedString alloc]
                                                 initWithAttributedString:[_btn attributedTitle]];
@@ -95,6 +104,7 @@
     }else{
         [_btn setFont:[NSFont systemFontOfSize:12.0]];
     }
+    
 }
 
 
@@ -112,6 +122,55 @@
 
 - (BOOL)isFlipped{
     return YES;
+}
+
+
+- (void)clickPress {
+    NSDictionary* errorDict;
+    NSString* strScript;
+    NSAppleEventDescriptor* returnDiscriptor = NULL;
+    
+    strScript = [[NSString alloc] initWithFormat:@" \n\
+                 tell application id \"com.vmware.fusion\"\n\
+                 activate \n\
+                 end tell"];
+    
+    NSAppleScript* scriptObject = [[NSAppleScript alloc] initWithSource:strScript];
+    returnDiscriptor = [scriptObject executeAndReturnError:&errorDict];
+    
+    
+    CGEventSourceRef source = CGEventSourceCreate(kCGEventSourceStateHIDSystemState);
+    
+    CGEventRef f4 = CGEventCreateKeyboardEvent(source, kVK_Return, true);
+    CGEventSetFlags(f4, kCGEventFlagMaskControl);
+    CGEventTapLocation location = kCGHIDEventTap;
+    CGEventPost(location, f4);
+    CFRelease(f4);
+    
+    CGEventRef stop = CGEventCreateKeyboardEvent(source, kVK_Return, false);
+    CGEventSetFlags(stop, kCGEventFlagMaskControl);
+    CGEventPost(kCGHIDEventTap, stop);
+    CFRelease(stop);
+    
+    CFRelease(source);
+    
+//                 NSDictionary* errorDict2;
+//                 NSString* strScript2;
+//                 NSAppleEventDescriptor* returnDiscriptor2 = NULL;
+    
+    
+                 //strScript2 = [[NSString alloc] initWithFormat:@"tell application \"System Events\" \n\
+                               keystroke \"s\" using {command down} \n\
+                               end tell"];
+//                strScript2 = [[NSString alloc] initWithFormat:@"tell application \"System Events\" \n\
+//                                        keystroke \"s\" \n\
+//                                        end tell"];
+//    
+//                NSAppleScript* scriptObject2 = [[NSAppleScript alloc] initWithSource:strScript2];
+//                returnDiscriptor2 = [scriptObject2 executeAndReturnError:&errorDict2];
+//    
+//                scriptObject2 = [[NSAppleScript alloc] initWithSource:strScript2];
+//                returnDiscriptor2 = [scriptObject2 executeAndReturnError:&errorDict2];
 }
 
 @end

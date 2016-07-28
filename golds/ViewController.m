@@ -32,7 +32,7 @@
     [btn setAction:@selector(click)];
     [view addSubview:btn];
     
-    [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(getLocalTime) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:0.001 target:self selector:@selector(getLocalTime) userInfo:nil repeats:YES];
     
     NSButton *btn2 = [[NSButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     btn2.title = @"test";

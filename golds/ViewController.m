@@ -43,13 +43,14 @@
 }
 
 - (void)click2: (NSButton *)btn{
+    [self clickPress];
     //获得系统时间
-    NSDate *  senddate=[NSDate date];
-    NSDateFormatter  *dateformatter=[[NSDateFormatter alloc] init];
-    [dateformatter setDateFormat:@"YYYY-MM-dd HH:mm:ss # SSS"];
-    NSString * timeString=[dateformatter stringFromDate:senddate];
-
-    btn.title = timeString;
+//    NSDate *  senddate=[NSDate date];
+//    NSDateFormatter  *dateformatter=[[NSDateFormatter alloc] init];
+//    [dateformatter setDateFormat:@"YYYY-MM-dd HH:mm:ss # SSS"];
+//    NSString * timeString=[dateformatter stringFromDate:senddate];
+//
+//    btn.title = timeString;
 }
 
 - (void)getLocalTime{
@@ -69,7 +70,7 @@
     
     // 触发点击回车
     static BOOL isRun = false;
-    if([m intValue] == 30 && [s intValue] == 0 && [ms intValue] >= 0 && !isRun){
+    if([m intValue] % 30 == 0 && [s intValue] == 0 && [ms intValue] >= 0 && !isRun){
         [self clickPress];
         isRun = true;
     }else if([s intValue] != 0){
